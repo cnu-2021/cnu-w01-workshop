@@ -29,6 +29,27 @@ You will be working with git and GitHub throughout the course. If it seems a lit
 - Whenever you "accept an assignment" using the links on Learn, a repo is created for you online on GitHub.
 - When you **clone** that repo onto your computer, you download the files from the GitHub repo, and you also create a "link" (called a *remote*) from your local repo to the GitHub repo. The changes you make to these files are *only* on your computer, until you *push* them (i.e. upload them) back to the GitHub repo. We will go through that process today.
 
+## Terminal commands
+
+If you are using a code editor which doesn't have a git interface/menu (for example Spyder), you can use a terminal to manage git instead. You will need to type commands in the terminal and press Enter to run them.
+
+- On Windows, use the application "Git Bash". (It should come pre-installed with git.)
+- On MacOS and Linux, use your Terminal application. (It should come pre-installed with your operating system.)
+
+For certain commands, git will ask you to type your GitHub username and password. If you don't see any characters appearing on the screen when you type your password, don't worry and keep typing, that's normal!
+
+Here is a summary of the commands we'll use today, for reference. Replace the repo URL with the link you copy from GitHub.
+
+| Command | Description |
+|-|-|
+| `git clone https://github.com/cnu-2021/cnu-w01-workshop-group-x-team-y.git` | Clones the GitHub repo in your home folder. |
+| `cd cnu-w01-workshop-group-x-team-y` | Navigate to the newly created folder. |
+| `git status` | Check if there are any unstaged changes. |
+| `git add -A` | Stages all changes. |
+| `git commit -m "My commit message"` | Commits the staged changes with the message `My commit message`. (Include the quotation marks!) |
+| `git push origin master` | Pushes the committed changes to the GitHub repo. |
+| `git pull origin master` | Pulls the new changes from the GitHub repo. |
+
 ---
 
 ## Instructions
@@ -56,9 +77,14 @@ The team repository you created (by accepting the assignment and creating/joinin
 5. If you get a prompt on the bottom right of your screen, select "Add to workspace". This will add this new repo to the list of folders on the left pane.
 6. After it has finished cloning the repo, you should now see these files in the left pane. Note that these instructions here are in the file `README.md`.
 
+> **Terminal commands**:
+> - Launch a terminal, type `git clone https://github.com/cnu-2021/cnu-w01-workshop-group-x-team-y.git`, and press Enter.
+> - If prompted, type your GitHub username and press Enter, then type your GitHub password and press Enter.
+> - Type `cd cnu-w01-workshop-group-x-team-y` and press Enter to navigate to the new folder.
+
 *If you have encountered any issues so far, please call a tutor.*
 
-- In VSCode, open the file `hello.py`. This is a **Python script**, which you can recognise with the extension `.py`. This can only contain Python code.
+- In VSCode (or in your favourite editor), open the file `hello.py`. This is a **Python script**, which you can recognise with the extension `.py`. This can only contain Python code.
 
 - You will see that there is already some code in there. Let's try to run it: in VSCode, click on the green triangle which looks like a "play" button at the top right of your screen. You should see the *output* of the code appear in a terminal window at the bottom of the screen.
 
@@ -91,6 +117,13 @@ This is what you need to do:
 
 - Now, you are going to commit these changes. **Whenever you commit**, you should write a **short message** to describe what changes you've made. Type a message in the text box where it says "Message"; for example, your message could be "Added my birthday to hello.py". Then, press Ctrl+Enter (Cmd+Enter on MacOS), or click the check mark icon next to "Source Control". Committing is simply telling git to save these changes.
 
+> **Terminal commands:**
+> - Make sure you have saved the file.
+> - In your terminal, make sure you are still in the folder `cnu-w01-workshop-group-x-team-y`. If not (e.g. if you have opened a new terminal), navigate to it using `cd`.
+> - You can check that there are new changes by using `git status` and pressing Enter. This should list the files that have been changed.
+> - To stage all changes, type `git add -A` and press Enter.
+> - To commit your changes, type `git commit -m "your commit message"` and press Enter.
+
 Your changes have now been committed to your *local* repo.
 
 > If at this point you see an error related to git credentials or identity (e.g. "Please tell me who you are"), then git wants you to do a little bit of configuration before it lets you commit for the very first time. This is because each commit needs to be easily identifiable as coming from a specific person. This is explained in more detail [here in the git documentation](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) (in the section "Your Identity"), if you are interested. Here are the steps to solve this:
@@ -116,6 +149,8 @@ Go to the repo on GitHub, refresh the page, and check the file `hello.py` -- you
 
 The final step is for you to **push** these files from your computer to GitHub (i.e. upload them). Click the `...` icon next to "Source Control" again, and click "Push". Wait a few seconds for this to finish.
 
+> **Terminal commands:** type `git push origin master` and press Enter.
+
 #### Navigator:
 
 Refresh the page again, and check `hello.py` -- you should now see the changes.
@@ -131,8 +166,10 @@ Navigator, you are now the **driver**, and vice versa.
 
 Go back to the GitHub repo, which is now updated with the latest changes.
 
-- If you had already cloned the repo on your computer before starting the exercise, then go to VSCode, open the Source Control tab (third icon down on the left), click the `...` icon next to "Source Control", and click "Pull", which will download the latest changes from GitHub and update your local repo with these changes.
 - If you have not cloned the repo yet, go back to the first "Driver:" section, and follow the same instructions to clone it.
+- If you had already cloned the repo on your computer at the start of the workshop, then go to VSCode, open the Source Control tab (third icon down on the left), click the `...` icon next to "Source Control", and click "Pull", which will download the latest changes from GitHub and update your local repo with these changes.
+
+> **Terminal commands:** to pull the changes, in the terminal, make sure you are in the folder `cnu-w01-workshop-group-x-team-y`; if not, navigate to it using `cd`. Then, type `git pull origin master` and press Enter.
 
 Go back to the "Explorer" tab (top icon on the left of VSCode) -- you should now see the files, including the changes that the previous driver just made. If you've had any issues with this, please call a tutor.
 
@@ -179,6 +216,8 @@ where <person 1> and <person 2> are your respective names, and <True/False> is e
 - Create more variables to print information about yourselves to get to know each other a little better: where you are from, where you are currently located and what time it is there, what courses you are taking this semester... It's a bit like having a conversation using exclusively `print()` commands.
 
 - You can also create a new Python script: in the "Explorer" tab, right-click on the name of the folder (`cnu-w01-workshop-...`), select "New File", and give it a name -- don't forget the `.py` extension. Write some code in it, run it; stage, commit, and push your changes for that new file to appear in the GitHub repo. You could create a new script like this to work together on one of the tutorial worksheet problems, for example.
+
+- If you've been using VSCode to manage git but you are curious about the terminal commands, try them out!
 
 ## Useful tips
 
