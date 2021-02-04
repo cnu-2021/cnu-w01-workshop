@@ -47,6 +47,7 @@ Here is a summary of the commands we'll use today, for reference. Replace the re
 | `git status` | Check if there are any unstaged changes. |
 | `git add -A` | Stages all changes. |
 | `git commit -m "My commit message"` | Commits the staged changes with the message `My commit message`. (Include the quotation marks!) |
+| `git fetch origin master` | Checks with the GitHub repo to see if anyone else has pushed changes before you. |
 | `git push origin master` | Pushes the committed changes to the GitHub repo. |
 | `git pull origin master` | Pulls the new changes from the GitHub repo. |
 
